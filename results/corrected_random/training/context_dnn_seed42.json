@@ -1,0 +1,139 @@
+{
+  "seconds": 3.276385199977085,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.8551737255257134,
+      "tuning_log_loss": 0.2772062420845032
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.13732153383985465,
+      "tuning_log_loss": 0.16192740201950073
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.07589956392627754,
+      "tuning_log_loss": 0.11304834485054016
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.05270553054830162,
+      "tuning_log_loss": 0.09309034794569016
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.04002722243501819,
+      "tuning_log_loss": 0.0783778727054596
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.0319458754690171,
+      "tuning_log_loss": 0.06643097847700119
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.026529087548875736,
+      "tuning_log_loss": 0.05745436251163483
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.022738881038632645,
+      "tuning_log_loss": 0.050774946808815
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.01990322677205912,
+      "tuning_log_loss": 0.04637279734015465
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.01762899469406232,
+      "tuning_log_loss": 0.04336332529783249
+    },
+    {
+      "epoch": 11,
+      "training_loss": 0.01580377997775556,
+      "tuning_log_loss": 0.04007113724946976
+    },
+    {
+      "epoch": 12,
+      "training_loss": 0.014241706316231856,
+      "tuning_log_loss": 0.03732815012335777
+    },
+    {
+      "epoch": 13,
+      "training_loss": 0.01296878148590429,
+      "tuning_log_loss": 0.03541823849081993
+    },
+    {
+      "epoch": 14,
+      "training_loss": 0.011863262563301655,
+      "tuning_log_loss": 0.03362374007701874
+    },
+    {
+      "epoch": 15,
+      "training_loss": 0.010896809581920809,
+      "tuning_log_loss": 0.03194713592529297
+    },
+    {
+      "epoch": 16,
+      "training_loss": 0.010071976304631278,
+      "tuning_log_loss": 0.03125689551234245
+    },
+    {
+      "epoch": 17,
+      "training_loss": 0.009356079251860413,
+      "tuning_log_loss": 0.030447399243712425
+    },
+    {
+      "epoch": 18,
+      "training_loss": 0.008699297965781356,
+      "tuning_log_loss": 0.02931082248687744
+    },
+    {
+      "epoch": 19,
+      "training_loss": 0.008113883402289065,
+      "tuning_log_loss": 0.029289888218045235
+    },
+    {
+      "epoch": 20,
+      "training_loss": 0.007603332839802638,
+      "tuning_log_loss": 0.028521213680505753
+    },
+    {
+      "epoch": 21,
+      "training_loss": 0.007120554209074981,
+      "tuning_log_loss": 0.027580616995692253
+    },
+    {
+      "epoch": 22,
+      "training_loss": 0.006692705232960101,
+      "tuning_log_loss": 0.027050498872995377
+    },
+    {
+      "epoch": 23,
+      "training_loss": 0.006281306414602107,
+      "tuning_log_loss": 0.026531986892223358
+    },
+    {
+      "epoch": 24,
+      "training_loss": 0.005942077866190868,
+      "tuning_log_loss": 0.026273654773831367
+    },
+    {
+      "epoch": 25,
+      "training_loss": 0.0056417653533281965,
+      "tuning_log_loss": 0.025663021951913834
+    }
+  ],
+  "best_epoch": 25,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "monotonic",
+    "attack_support": 1052,
+    "benign_support": 3938,
+    "slope": 1.1404180554368435,
+    "boundary_solution": false
+  }
+}

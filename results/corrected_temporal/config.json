@@ -1,0 +1,25 @@
+{
+  "protocol": "temporal",
+  "binary": true,
+  "calibration": "monotonic",
+  "threshold_search": "validation_quantiles",
+  "study_status": "development follow-up after diagnosing unrestricted calibration and coarse-grid failures; independent confirmation pending",
+  "seeds": [
+    17,
+    42,
+    99
+  ],
+  "hidden_layers": [
+    64,
+    32
+  ],
+  "epochs": 25,
+  "patience": 5,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "l2": 0.0001,
+  "trees": 100,
+  "benign_budget": 0.05,
+  "bootstrap_repeats": 300,
+  "threads": 2
+}

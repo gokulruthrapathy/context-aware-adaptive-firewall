@@ -1,0 +1,123 @@
+{
+  "model": "random_forest",
+  "seed": 17,
+  "features": 78,
+  "classifier": {
+    "accuracy": 0.9241231209735147,
+    "macro_precision": 0.919305724725944,
+    "macro_recall": 0.937367052706216,
+    "macro_f1": 0.9227023188323005,
+    "class_order": [
+      "ATTACK",
+      "BENIGN"
+    ],
+    "confusion_matrix": [
+      [
+        3701,
+        530
+      ],
+      [
+        0,
+        2754
+      ]
+    ],
+    "per_class": {
+      "ATTACK": {
+        "precision": 1.0,
+        "recall": 0.874734105412432,
+        "f1-score": 0.9331820474029249,
+        "support": 4231.0
+      },
+      "BENIGN": {
+        "precision": 0.8386114494518879,
+        "recall": 1.0,
+        "f1-score": 0.9122225902616761,
+        "support": 2754.0
+      },
+      "accuracy": 0.9241231209735147,
+      "macro avg": {
+        "precision": 0.919305724725944,
+        "recall": 0.937367052706216,
+        "f1-score": 0.9227023188323005,
+        "support": 6985.0
+      },
+      "weighted avg": {
+        "precision": 0.9363687804997136,
+        "recall": 0.9241231209735147,
+        "f1-score": 0.9249182900704983,
+        "support": 6985.0
+      }
+    },
+    "attack_auroc": 0.999255289184662,
+    "attack_average_precision": 0.9995036477507846,
+    "attack_brier": 0.5829696511183206,
+    "attack_ece": 0.5930446281865266,
+    "test_rows_with_unseen_training_class": 0,
+    "raw_attack_brier": 0.07721782470737953
+  },
+  "fixed_policy": {
+    "attack_count": 4231,
+    "benign_count": 2754,
+    "attack_blocked": 0,
+    "attack_contained": 0,
+    "benign_blocked": 0,
+    "benign_disrupted": 0,
+    "attack_blocking": 0.0,
+    "attack_containment": 0.0,
+    "benign_false_block": 0.0,
+    "benign_disruption": 0.0,
+    "attack_blocking_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "attack_containment_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "benign_false_block_ci95": [
+      0.0,
+      0.0013385657222771262
+    ],
+    "benign_disruption_ci95": [
+      0.0,
+      0.0013385657222771262
+    ]
+  },
+  "selected_policy": {
+    "attack_count": 4231,
+    "benign_count": 2754,
+    "attack_blocked": 4227,
+    "attack_contained": 4230,
+    "benign_blocked": 42,
+    "benign_disrupted": 102,
+    "attack_blocking": 0.9990545970219806,
+    "attack_containment": 0.9997636492554951,
+    "benign_false_block": 0.015250544662309368,
+    "benign_disruption": 0.037037037037037035,
+    "attack_blocking_ci95": [
+      0.9975811778355644,
+      0.9997423513387419
+    ],
+    "attack_containment_ci95": [
+      0.9986838491583354,
+      0.999994016135137
+    ],
+    "benign_false_block_ci95": [
+      0.011012776493215802,
+      0.02055891751297255
+    ],
+    "benign_disruption_ci95": [
+      0.030298205235977264,
+      0.04478116502470418
+    ]
+  },
+  "thresholds": {
+    "monitor": 0.4384739624931886,
+    "rate_limit": 0.8769479249863772,
+    "block": 1.0399211900183134
+  },
+  "inference_seconds": 0.08258530008606613,
+  "microseconds_per_flow": 11.823235516974393,
+  "timing_scope": "batch feature transformation + prediction + binary calibration; excludes flow extraction and history generation",
+  "selection_manifest_sha256": "f26124e4800c5986c7dc8c85f40c7b33ee86a941907cec5bb1633fcbf16d626d"
+}

@@ -1,0 +1,12 @@
+true_label,Allow,Monitor,Rate-limit,Block
+BENIGN,15964,6,7,82
+Bot,1,0,0,7
+DDoS,0,0,0,1019
+DoS GoldenEye,0,0,0,78
+DoS Hulk,1,0,0,1735
+DoS Slowhttptest,0,0,0,18
+DoS slowloris,0,0,0,41
+FTP-Patator,0,0,0,51
+PortScan,0,0,1,890
+SSH-Patator,1,0,0,44
+Web Attack - Brute Force,0,0,0,2

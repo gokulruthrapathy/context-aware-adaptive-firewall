@@ -1,0 +1,87 @@
+{
+  "seconds": 2.9042084000539035,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.07704148598728212,
+      "tuning_log_loss": 0.01173194870352745
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.01213762973876211,
+      "tuning_log_loss": 0.009466682560741901
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.007246991160185506,
+      "tuning_log_loss": 0.009175361134111881
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.005638341789920967,
+      "tuning_log_loss": 0.008728573098778725
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0047256002385426795,
+      "tuning_log_loss": 0.008393575437366962
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.004014082845704751,
+      "tuning_log_loss": 0.008053304627537727
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.0034331389788991593,
+      "tuning_log_loss": 0.00785642396658659
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.0029326245865581484,
+      "tuning_log_loss": 0.007928943261504173
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.0025317872364540384,
+      "tuning_log_loss": 0.00758229847997427
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.0021974586789563055,
+      "tuning_log_loss": 0.007560992147773504
+    },
+    {
+      "epoch": 11,
+      "training_loss": 0.001867817242463698,
+      "tuning_log_loss": 0.007246677298098803
+    },
+    {
+      "epoch": 12,
+      "training_loss": 0.0016499957080712932,
+      "tuning_log_loss": 0.007614615373313427
+    },
+    {
+      "epoch": 13,
+      "training_loss": 0.0012919728169172426,
+      "tuning_log_loss": 0.007201395928859711
+    },
+    {
+      "epoch": 14,
+      "training_loss": 0.001110480192573492,
+      "tuning_log_loss": 0.0074184308759868145
+    },
+    {
+      "epoch": 15,
+      "training_loss": 0.0020898604352411567,
+      "tuning_log_loss": 0.010613496415317059
+    },
+    {
+      "epoch": 16,
+      "training_loss": 0.0011394713047607411,
+      "tuning_log_loss": 0.0073152570985257626
+    }
+  ],
+  "best_epoch": 13,
+  "tuning_unknown_rows": 0
+}

@@ -1,0 +1,7 @@
+{
+  "test_rows": 6985,
+  "frozen_manifest_sha256": "937986eb5c3b9354edd8fab64cdba5894b2ac9c9176d9f00ec1b346b0905f039",
+  "models_evaluated": 18,
+  "status": "complete",
+  "test_reused_for_selection": false
+}

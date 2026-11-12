@@ -1,0 +1,152 @@
+[
+  {
+    "model_seed": 17,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": -0.004861006520126665,
+    "ci95": [
+      -0.006364547514060926,
+      -0.0032133503142132624
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 17
+  },
+  {
+    "model_seed": 17,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": -0.004861006520126665,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 17,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  },
+  {
+    "model_seed": 17,
+    "comparison": "context_dnn",
+    "delta_macro_f1": -0.004575333336681364,
+    "ci95": [
+      -0.006226562599287419,
+      -0.002856868754101685
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 17
+  },
+  {
+    "model_seed": 17,
+    "comparison": "context_dnn",
+    "delta_macro_f1": -0.004575333336681364,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 17,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  },
+  {
+    "model_seed": 42,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 42
+  },
+  {
+    "model_seed": 42,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 42,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  },
+  {
+    "model_seed": 42,
+    "comparison": "context_dnn",
+    "delta_macro_f1": 0.0001428325023848931,
+    "ci95": [
+      -0.00042831956040857987,
+      0.0007158538617914017
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 42
+  },
+  {
+    "model_seed": 42,
+    "comparison": "context_dnn",
+    "delta_macro_f1": 0.0001428325023848931,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 42,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  },
+  {
+    "model_seed": 99,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 99
+  },
+  {
+    "model_seed": 99,
+    "comparison": "engineered_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 99,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  },
+  {
+    "model_seed": 99,
+    "comparison": "context_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      -0.0007148282635882963,
+      0.0007140863050467238
+    ],
+    "repeats": 300,
+    "unit": "flow",
+    "seed": 99
+  },
+  {
+    "model_seed": 99,
+    "comparison": "context_dnn",
+    "delta_macro_f1": 0.0,
+    "ci95": [
+      null,
+      null
+    ],
+    "repeats": 0,
+    "unit": "capture file",
+    "seed": 99,
+    "reason": "Fewer than two independent capture groups; cluster uncertainty is not estimable"
+  }
+]

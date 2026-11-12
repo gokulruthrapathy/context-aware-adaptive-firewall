@@ -1,0 +1,13 @@
+{
+  "seconds": 5.999838500050828,
+  "history": [],
+  "best_epoch": null,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "monotonic",
+    "attack_support": 1052,
+    "benign_support": 3938,
+    "slope": 0.9665898001396398,
+    "boundary_solution": false
+  }
+}

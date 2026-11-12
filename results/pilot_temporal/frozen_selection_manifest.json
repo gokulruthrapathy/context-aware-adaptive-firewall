@@ -1,0 +1,319 @@
+{
+  "code_sha256": "5604ac804d843e45ddd929d0aaf51b7f1f17eb8d39033677e50f53464d591ec6",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  },
+  "config": {
+    "protocol": "temporal",
+    "binary": true,
+    "seeds": [
+      17,
+      42,
+      99
+    ],
+    "hidden_layers": [
+      64,
+      32
+    ],
+    "epochs": 25,
+    "patience": 5,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "trees": 100,
+    "benign_budget": 0.05,
+    "bootstrap_repeats": 300,
+    "threads": 2
+  },
+  "classes": [
+    "ATTACK",
+    "BENIGN"
+  ],
+  "artifacts": [
+    {
+      "name": "baseline_dnn_seed17",
+      "model": "baseline_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\baseline_dnn_seed17.joblib",
+      "artifact_sha256": "187f6f288cb917ce549997d2b48bb9bb733378a03a8a0669bfb426d20865c16c",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "baseline_dnn_seed42",
+      "model": "baseline_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\baseline_dnn_seed42.joblib",
+      "artifact_sha256": "9386f81504fbcca08398a266415f5a417e0331c8857f6654d432ebf565b5d83c",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "baseline_dnn_seed99",
+      "model": "baseline_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\baseline_dnn_seed99.joblib",
+      "artifact_sha256": "37a4cd7d9c1056c7aae7d7d1e6fc5f8b56f2b6fd079ded674cd7d27de21cd88b",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "engineered_dnn_seed17",
+      "model": "engineered_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\engineered_dnn_seed17.joblib",
+      "artifact_sha256": "b3cce91b7d513b157bb3e023df55ac9ef550dec7224b44afb9175e88b70c9aab",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "engineered_dnn_seed42",
+      "model": "engineered_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\engineered_dnn_seed42.joblib",
+      "artifact_sha256": "0422e7f25e98e1d8e08a6008a4fe50fd8ae76bbaa7c9a9008c8a38ab34874443",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "engineered_dnn_seed99",
+      "model": "engineered_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\engineered_dnn_seed99.joblib",
+      "artifact_sha256": "e455a6ab782f81744bbdb2bf5f2f3516d1c2752be6c7c8a52b66b2ff650daad8",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "context_dnn_seed17",
+      "model": "context_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\context_dnn_seed17.joblib",
+      "artifact_sha256": "8b563e7f70748523105e31eaefeddee37811aeeea75df2b20c731353eaf2fe18",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "context_dnn_seed42",
+      "model": "context_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\context_dnn_seed42.joblib",
+      "artifact_sha256": "45690c5e6f1c7460c50c13c05f49bdcb4d5711c3ab53325dec6430d31dbcb4ce",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "context_dnn_seed99",
+      "model": "context_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\context_dnn_seed99.joblib",
+      "artifact_sha256": "8c2a7ba71b4beaa7902485b3db71a775cddb51dee24b23051b7fbec58a937072",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "random_forest_seed17",
+      "model": "random_forest",
+      "seed": 17,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\random_forest_seed17.joblib",
+      "artifact_sha256": "e202a650aef8e38c6dcf77ddaed4af801b14d0d87305a8fc93485c63f46bb290",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "random_forest_seed42",
+      "model": "random_forest",
+      "seed": 42,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\random_forest_seed42.joblib",
+      "artifact_sha256": "b9674dde21ed3aaaefd789be43a1301e5342b5e636381b5b9339315f87238b30",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "random_forest_seed99",
+      "model": "random_forest",
+      "seed": 99,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\random_forest_seed99.joblib",
+      "artifact_sha256": "93dab82aba56e3a38248c8c0039c809aabf4c0c2c2d84abec89988301b9c6796",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "logistic_seed17",
+      "model": "logistic",
+      "seed": 17,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\logistic_seed17.joblib",
+      "artifact_sha256": "2db9a8453704239b7518a80051d4b59ffd1668d03d28640be8b3c9f6bb8d958b",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "logistic_seed42",
+      "model": "logistic",
+      "seed": 42,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\logistic_seed42.joblib",
+      "artifact_sha256": "ac8e631b87625c7dc044bfb4b1d57d2c5fa589d90f2f9be967c7bd975a2700f7",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "logistic_seed99",
+      "model": "logistic",
+      "seed": 99,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\logistic_seed99.joblib",
+      "artifact_sha256": "3bdbf39414e3943e5e0be5724f715c8de7808abb1265764d85123c72484592c4",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "dummy_seed17",
+      "model": "dummy",
+      "seed": 17,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\dummy_seed17.joblib",
+      "artifact_sha256": "0dfefce2d14dddeda78adb9190c6f84ad65892544792fd313ca97bb038907c23",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "dummy_seed42",
+      "model": "dummy",
+      "seed": 42,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\dummy_seed42.joblib",
+      "artifact_sha256": "a489a4aa9ad9557aa98886913fb3f8cbc8be448a41461519001e0ab44e949c2e",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    },
+    {
+      "name": "dummy_seed99",
+      "model": "dummy",
+      "seed": 99,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "C:\\Users\\gokul\\Documents\\Codex\\2026-11-12\\th\\outputs\\firewall-research\\results\\pilot_temporal\\models\\dummy_seed99.joblib",
+      "artifact_sha256": "f54efaf1796ff1f4fb752a06e67241a6f0aa6fc89a203fb1a0f77dc0ad53a6ac",
+      "policy": {
+        "monitor": 25,
+        "rate_limit": 30,
+        "block": 40
+      }
+    }
+  ],
+  "protocol": "temporal",
+  "test_used_for_selection": false,
+  "caveats": [
+    "Post-flow completed-record scoring, not prevention of packets already transmitted",
+    "Rate-limit containment is an offline proxy, not measured mitigation",
+    "History is based on retained sampled flows, not the full original capture",
+    "Random protocol mixes capture times; temporal protocol is a separate forward-time test",
+    "Exact-feature deduplication changes the original capture distribution"
+  ]
+}

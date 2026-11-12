@@ -1,0 +1,57 @@
+{
+  "seconds": 1.9277514999266714,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.08493614819733505,
+      "tuning_log_loss": 0.008378102444112301
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.008327040209963122,
+      "tuning_log_loss": 0.0062520988285541534
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.004788653937743163,
+      "tuning_log_loss": 0.005996013060212135
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.0034985408935189538,
+      "tuning_log_loss": 0.005844390485435724
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0027906329668880487,
+      "tuning_log_loss": 0.005467310082167387
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.0023009762075497783,
+      "tuning_log_loss": 0.005632191896438599
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.0020058265046049785,
+      "tuning_log_loss": 0.005526593886315823
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.0016714648434821148,
+      "tuning_log_loss": 0.005529371090233326
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.001466241449283247,
+      "tuning_log_loss": 0.005542708095163107
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.0012803920965948714,
+      "tuning_log_loss": 0.005486460402607918
+    }
+  ],
+  "best_epoch": 5,
+  "tuning_unknown_rows": 0
+}

@@ -1,0 +1,54 @@
+{
+  "seconds": 1.4377965999301523,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.11244821627467878,
+      "tuning_log_loss": 0.010082600638270378
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.011574917492322872,
+      "tuning_log_loss": 0.00627026567235589
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.005786089269079966,
+      "tuning_log_loss": 0.00542136887088418
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.00425111425903055,
+      "tuning_log_loss": 0.005374377593398094
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0034003262539862196,
+      "tuning_log_loss": 0.0056329150684177876
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.0028322122232357517,
+      "tuning_log_loss": 0.00545092485845089
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.0024390703081969547,
+      "tuning_log_loss": 0.005819295533001423
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.002142778738765865,
+      "tuning_log_loss": 0.005937858484685421
+    }
+  ],
+  "best_epoch": 4,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "monotonic",
+    "attack_support": 28,
+    "benign_support": 6956,
+    "slope": 0.0001,
+    "boundary_solution": true
+  }
+}

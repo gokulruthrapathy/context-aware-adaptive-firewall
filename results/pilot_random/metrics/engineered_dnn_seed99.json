@@ -1,0 +1,461 @@
+{
+  "model": "engineered_dnn",
+  "seed": 99,
+  "features": 92,
+  "classifier": {
+    "accuracy": 0.9913274513735713,
+    "macro_precision": 0.5645781407315168,
+    "macro_recall": 0.7311035670851089,
+    "macro_f1": 0.6162407177543666,
+    "class_order": [
+      "BENIGN",
+      "Bot",
+      "DDoS",
+      "DoS GoldenEye",
+      "DoS Hulk",
+      "DoS Slowhttptest",
+      "DoS slowloris",
+      "FTP-Patator",
+      "Heartbleed",
+      "Infiltration",
+      "PortScan",
+      "SSH-Patator",
+      "Web Attack - Brute Force",
+      "Web Attack - Sql Injection",
+      "Web Attack - XSS"
+    ],
+    "confusion_matrix": [
+      [
+        15888,
+        7,
+        0,
+        12,
+        6,
+        15,
+        15,
+        0,
+        0,
+        1,
+        90,
+        16,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1019,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1735,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        51,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        891,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        44,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "per_class": {
+      "BENIGN": {
+        "precision": 1.0,
+        "recall": 0.9893517653652157,
+        "f1-score": 0.9946473847309607,
+        "support": 16059.0
+      },
+      "Bot": {
+        "precision": 0.5333333333333333,
+        "recall": 1.0,
+        "f1-score": 0.6956521739130435,
+        "support": 8.0
+      },
+      "DDoS": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1019.0
+      },
+      "DoS GoldenEye": {
+        "precision": 0.8666666666666667,
+        "recall": 1.0,
+        "f1-score": 0.9285714285714286,
+        "support": 78.0
+      },
+      "DoS Hulk": {
+        "precision": 0.996553704767375,
+        "recall": 0.9994239631336406,
+        "f1-score": 0.997986770204199,
+        "support": 1736.0
+      },
+      "DoS Slowhttptest": {
+        "precision": 0.5294117647058824,
+        "recall": 1.0,
+        "f1-score": 0.6923076923076923,
+        "support": 18.0
+      },
+      "DoS slowloris": {
+        "precision": 0.7192982456140351,
+        "recall": 1.0,
+        "f1-score": 0.8367346938775511,
+        "support": 41.0
+      },
+      "FTP-Patator": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 51.0
+      },
+      "Heartbleed": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "Infiltration": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "PortScan": {
+        "precision": 0.908256880733945,
+        "recall": 1.0,
+        "f1-score": 0.9519230769230769,
+        "support": 891.0
+      },
+      "SSH-Patator": {
+        "precision": 0.7333333333333333,
+        "recall": 0.9777777777777777,
+        "f1-score": 0.8380952380952381,
+        "support": 45.0
+      },
+      "Web Attack - Brute Force": {
+        "precision": 0.18181818181818182,
+        "recall": 1.0,
+        "f1-score": 0.3076923076923077,
+        "support": 2.0
+      },
+      "Web Attack - Sql Injection": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "Web Attack - XSS": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 0.9913274513735713,
+      "macro avg": {
+        "precision": 0.5645781407315168,
+        "recall": 0.7311035670851089,
+        "f1-score": 0.6162407177543666,
+        "support": 19948.0
+      },
+      "weighted avg": {
+        "precision": 0.9932085951010272,
+        "recall": 0.9913274513735713,
+        "f1-score": 0.9919190879319988,
+        "support": 19948.0
+      }
+    },
+    "attack_auroc": 0.9997453863678405,
+    "attack_average_precision": 0.9985852478366338,
+    "attack_brier": 0.003448794009334784,
+    "attack_ece": 0.0016078562971372835,
+    "test_rows_with_unseen_training_class": 0,
+    "raw_attack_brier": 0.00875009097398694
+  },
+  "fixed_policy": {
+    "attack_count": 3889,
+    "benign_count": 16059,
+    "attack_blocked": 3811,
+    "attack_contained": 3849,
+    "benign_blocked": 38,
+    "benign_disrupted": 53,
+    "attack_blocking": 0.9799434301877089,
+    "attack_containment": 0.9897145795834404,
+    "benign_false_block": 0.002366274363285385,
+    "benign_disruption": 0.0033003300330033004,
+    "attack_blocking_ci95": [
+      0.9750309586482897,
+      0.9841146329503551
+    ],
+    "attack_containment_ci95": [
+      0.9860202621160997,
+      0.9926420623698646
+    ],
+    "benign_false_block_ci95": [
+      0.0016750440512322668,
+      0.00324646434381628
+    ],
+    "benign_disruption_ci95": [
+      0.002473121420835476,
+      0.004314717696779427
+    ]
+  },
+  "selected_policy": {
+    "attack_count": 3889,
+    "benign_count": 16059,
+    "attack_blocked": 3875,
+    "attack_contained": 3886,
+    "benign_blocked": 72,
+    "benign_disrupted": 98,
+    "attack_blocking": 0.9964001028542042,
+    "attack_containment": 0.999228593468758,
+    "benign_false_block": 0.0044834672146459925,
+    "benign_disruption": 0.006102497042157046,
+    "attack_blocking_ci95": [
+      0.9939673536380425,
+      0.9980305481002678
+    ],
+    "attack_containment_ci95": [
+      0.9977472938109236,
+      0.9998408891670209
+    ],
+    "benign_false_block_ci95": [
+      0.0035096410123440537,
+      0.005642900204841792
+    ],
+    "benign_disruption_ci95": [
+      0.004956997284672548,
+      0.007432021798918686
+    ]
+  },
+  "thresholds": {
+    "monitor": 25,
+    "rate_limit": 30,
+    "block": 40
+  },
+  "inference_seconds": 0.07480810000561178,
+  "microseconds_per_flow": 3.7501554043318515,
+  "timing_scope": "batch feature transformation + prediction + binary calibration; excludes flow extraction and history generation",
+  "selection_manifest_sha256": "624fab206204797a9e035c92078fea73a94013f688b1f08e2b8baa54e520addb"
+}
