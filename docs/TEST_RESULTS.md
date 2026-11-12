@@ -1,4 +1,7 @@
-# Executed software checks
+# Historical version 0.1 software checks
+
+This records the original run, not the current test count. Current execution
+evidence is saved with the version 0.2 notebook results; see V2_WORKFLOW.md.
 
 Final source: 17 tests passed using `python -m pytest -q` in the isolated Python 3.12.14 environment.
 

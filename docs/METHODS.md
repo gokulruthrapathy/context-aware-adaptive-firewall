@@ -1,5 +1,8 @@
 # Experimental methods and contracts
 
+This describes the archived version 0.1 studies. Version 0.2 changes and their
+explicit contracts are in V2_WORKFLOW.md; historical results are not overwritten.
+
 ## Data preparation
 
 The ZIP archive is streamed through pandas in 25,000-row chunks. No archive code is executed and no paths are extracted. SHA-256 must match the pinned release. Headers are stripped. Numeric fields parse with invalid values mapped to NaN, and infinite values become NaN. Rows with invalid timestamps, negative/missing duration, missing labels, repeated headers or fewer than half the numeric fields present are excluded. Remaining numeric missing values are imputed from training medians. Label `Attempted` variants map to BENIGN. Original and mapped label counts are saved.

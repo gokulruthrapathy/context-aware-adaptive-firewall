@@ -44,7 +44,7 @@ def make_plots(directory):
         im=ax.imshow(normalized,vmin=0,vmax=1,cmap="Blues")
         ax.set_xticks(range(len(names)),names,rotation=90,fontsize=7)
         ax.set_yticks(range(len(names)),names,fontsize=7)
-        ax.set(xlabel="Predicted class",ylabel="True class",title="Context DNN: row-normalized confusion matrix")
+        ax.set(xlabel="Predicted class",ylabel="True class",title=f"Context DNN seed {metrics['seed']}: row-normalized confusion matrix")
         fig.colorbar(im,ax=ax)
         save(fig,output/"context_confusion")
         pred=pd.read_csv(root/(file.stem+"_predictions.csv.gz"))
@@ -55,6 +55,19 @@ def make_plots(directory):
         valid=[i for i in range(10) if (bins==i).any()]
         ax.plot([0,1],[0,1],"--",color="gray")
         ax.plot([p[bins==i].mean() for i in valid],[y[bins==i].mean() for i in valid],"o-",color="#147d92")
-        ax.set(xlim=(0,1),ylim=(0,1),xlabel="Mean calibrated attack probability",ylabel="Observed attack fraction",title="Held-out binary calibration")
+        ax.set(xlim=(0,1),ylim=(0,1),xlabel="Mean used attack probability",ylabel="Observed attack fraction",title=f"Context seed {metrics['seed']}: probability reliability")
         save(fig,output/"context_calibration")
         break
+    candidates=root/"validation_policy_candidates.csv"
+    if candidates.exists():
+        rows=pd.read_csv(candidates)
+        if "score_source" in rows:
+            fig,ax=plt.subplots(figsize=(8,5))
+            for (model,source),group in rows.groupby(["model","score_source"]):
+                if source!="raw" or model=="dummy":continue
+                frontier=group.groupby("benign_disruption")["attack_containment"].max().sort_index()
+                ax.plot(frontier.index*100,frontier.to_numpy()*100,label=model)
+            ax.set(xlim=(0,10),ylim=(0,101),xlabel="Validation benign disruption (%)",
+                ylabel="Validation containment proxy (%)",title="Validation raw-score candidates (seeds pooled descriptively)")
+            ax.legend(fontsize=8)
+            save(fig,output/"validation_policy_candidates")

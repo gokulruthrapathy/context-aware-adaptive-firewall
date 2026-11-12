@@ -4,5 +4,6 @@ __pycache__/
 *.egg-info/
 data/raw/*
 data/prepared/*
+data/prepared_v*/
 !data/raw/.gitkeep
 !data/prepared/.gitkeep

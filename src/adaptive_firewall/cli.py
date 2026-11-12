@@ -29,6 +29,10 @@ def main():
     s.add_argument("--model",required=True)
     s.add_argument("--input",required=True)
     s.add_argument("--output",required=True)
+    s.add_argument("--state",help="Persistent JSON history state")
+    s.add_argument("--observation-column",help="True/false reference-observation flag for sampled-history models")
+    reg=sub.add_parser("register-prepared",help="Explicitly fingerprint preserved legacy cohorts")
+    reg.add_argument("--directory",required=True)
     args=parser.parse_args()
     if args.command=="download":
         output=Path(args.output)
@@ -52,9 +56,12 @@ def main():
     elif args.command=="verify":
         from .verify import verify_results
         print(json.dumps(verify_results(args.results),indent=2))
+    elif args.command=="register-prepared":
+        from .provenance import register_prepared
+        print(json.dumps(register_prepared(args.directory),indent=2))
     else:
         from .inference import score_completed_csv
-        print("Scored completed flows:",score_completed_csv(args.results,args.model,args.input,args.output))
+        print("Scored completed flows:",score_completed_csv(args.results,args.model,args.input,args.output,args.state,args.observation_column))
 
 
 if __name__=="__main__":

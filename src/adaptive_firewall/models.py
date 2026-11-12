@@ -21,7 +21,7 @@ def fit_model(kind, x, y, x_tune, y_tune, seed, config):
             activation="relu", solver="adam", alpha=config.get("l2",1e-4),
             batch_size=min(len(x),config.get("batch_size",256)), learning_rate_init=config.get("learning_rate",.001),
             early_stopping=False, shuffle=True, random_state=seed, max_iter=1)
-        best_loss, best_model, wait = float("inf"), None, 0
+        best_loss, best_model, wait, retained_epoch = float("inf"), None, 0, None
         for epoch in range(config.get("epochs",30)):
             model.partial_fit(x,y,classes=classes)
             p = model.predict_proba(x_tune[mask])
@@ -29,6 +29,7 @@ def fit_model(kind, x, y, x_tune, y_tune, seed, config):
             history.append(dict(epoch=epoch+1, training_loss=float(model.loss_), tuning_log_loss=loss))
             if loss < best_loss-config.get("min_delta",1e-4):
                 best_loss, best_model, wait = loss, deepcopy(model), 0
+                retained_epoch=epoch+1
             else:
                 wait += 1
             if wait >= config.get("patience",5):
@@ -44,14 +45,15 @@ def fit_model(kind, x, y, x_tune, y_tune, seed, config):
     else:
         raise ValueError("Unknown model: " + kind)
     return model, dict(seconds=time.perf_counter()-begin,history=history,
-        best_epoch=min(history,key=lambda r:r["tuning_log_loss"])["epoch"] if history else None,
+        best_epoch=retained_epoch if history else None,
+        minimum_loss_epoch=min(history,key=lambda r:r["tuning_log_loss"])["epoch"] if history else None,
         tuning_unknown_rows=int((~np.isin(y_tune,np.unique(y))).sum()))
 
 
 class BinaryCalibrator:
     """Monotonic Platt calibration on the dedicated calibration split."""
     def __init__(self,method="monotonic"):
-        if method not in {"monotonic","unrestricted"}:
+        if method not in {"identity","monotonic","unrestricted"}:
             raise ValueError("Unknown calibration method")
         self.method_=method
 
@@ -60,9 +62,19 @@ class BinaryCalibrator:
         p = np.clip(np.asarray(p,dtype=float),1e-6,1-1e-6)
         return np.log(p/(1-p)).reshape(-1,1)
 
-    def fit(self,p,y):
+    def fit(self,p,y,min_per_class=1,fallback="none"):
         if np.unique(y).size != 2:
             raise ValueError("Calibration requires benign and attack records")
+        self.requested_method_=self.method_
+        self.attack_support_=int(np.asarray(y,dtype=bool).sum())
+        self.benign_support_=len(y)-self.attack_support_
+        self.fallback_reason_=None
+        if self.method_!="identity" and min(self.attack_support_,self.benign_support_)<min_per_class:
+            self.fallback_reason_=f"calibration support below {min_per_class} per class"
+            if fallback=="error":raise ValueError(self.fallback_reason_)
+            if fallback=="identity":self.method_="identity"
+        if self.method_=="identity":
+            return self
         if self.method_=="unrestricted":
             self.model_ = LogisticRegression(C=1,solver="lbfgs",max_iter=1000).fit(self.design(p),y)
         else:
@@ -86,11 +98,15 @@ class BinaryCalibrator:
                 raise ValueError("Monotonic calibration optimization failed: "+fitted.message)
             self.slope_,self.intercept_=map(float,fitted.x)
             self.boundary_solution_=self.slope_<=1.01e-4
-        self.attack_support_=int(np.asarray(y,dtype=bool).sum())
-        self.benign_support_=len(y)-self.attack_support_
+            if self.boundary_solution_ and fallback!="none":
+                self.fallback_reason_="monotonic slope reached lower bound"
+                if fallback=="error":raise ValueError(self.fallback_reason_)
+                self.method_="identity"
         return self
 
     def predict(self,p):
+        if getattr(self,"method_",None)=="identity":
+            return np.asarray(p,dtype=float).copy()
         if getattr(self,"method_","unrestricted")=="unrestricted":
             return self.model_.predict_proba(self.design(p))[:,list(self.model_.classes_).index(True)]
         from scipy.special import expit

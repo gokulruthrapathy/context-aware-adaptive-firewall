@@ -1,5 +1,21 @@
 # Adaptive firewall research package
 
+## Current CPU / Colab workflow (version 0.2)
+
+[Open the runnable Colab notebook](https://colab.research.google.com/github/gokulruthrapathy/context-aware-adaptive-firewall/blob/research-fixes-colab/notebooks/Adaptive_Firewall_Research.ipynb).
+Choose a standard CPU runtime and Run all. It prepares public data, runs tests,
+trains the models, verifies results and exports an evidence ZIP.
+
+Use `configs/research_random_v2.json` / `research_temporal_v2.json` for new work.
+The audit fixes, persistent scoring interface, calibration fallback, new policy
+controls and remaining limitations are documented in [the v2 workflow](docs/V2_WORKFLOW.md).
+Old results remain intact. New results are development reruns on a previously
+examined benchmark; they are not fresh independent confirmation.
+
+The sections below retain the original package overview. For current preparation,
+use a new `data/prepared_v2` directory; the v2 runner requires its preparation manifest.
+The original `pilot_*` configurations and results describe historical experiments.
+
 This is a **new, locally implemented offline research pipeline**, not a recovery of the missing Team CSEUG49 source code. No original Python files were supplied. The presentation's numerical results are not reused as experimental evidence.
 
 The code classifies **completed network flows** and assigns simulated Allow / Monitor / Rate-limit / Block actions. It does not parse live packets, change operating-system firewall rules, retrain itself in production, or demonstrate prevention of traffic already transmitted.

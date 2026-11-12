@@ -1,5 +1,7 @@
 # Causal Flow Context and Budget-Constrained Risk Policies: An Offline Development Study on Corrected CICIDS2017
 
+**Historical version 0.1 draft; see docs/V2_WORKFLOW.md for subsequent development.**
+
 **Working manuscript draft. Not ready for submission. Author list, affiliations and corresponding author require confirmation.**
 
 ## Abstract
@@ -76,7 +78,7 @@ OpenAI Codex assisted with implementation, tests, experiment orchestration, anal
 
 [4] Y. Mirsky, T. Doitshman, Y. Elovici, and A. Shabtai, ‘Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection,’ NDSS, 2018. https://cris.bgu.ac.il/en/publications/kitsune-an-ensemble-of-autoencoders-for-online-network-intrusion-/
 
-[5] M. Cantone, C. Marrocco, and A. Bria, ‘On the Cross-Dataset Generalization of Machine Learning for Network Intrusion Detection,’ arXiv:2402.10974, 2024 preprint. https://arxiv.org/abs/2402.10974
+[5] M. Cantone, C. Marrocco, and A. Bria, ‘On the Cross-Dataset Generalization of Machine Learning for Network Intrusion Detection,’ IEEE Access 12:144489-144508, 2024; DOI 10.1109/ACCESS.2024.3472907. https://arxiv.org/abs/2402.10974
 
 [6] A. El Mahdaouy, I. Ait Yahia, S. Oualil, and I. Berrada, ‘Deep Learning for Contextualized NetFlow-Based Network Intrusion Detection: Methods, Data, Evaluation and Deployment,’ arXiv:2602.05594, 2026 preprint. https://arxiv.org/abs/2602.05594
 

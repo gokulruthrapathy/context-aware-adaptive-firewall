@@ -1,0 +1,33 @@
+{
+  "protocol": "temporal",
+  "binary": true,
+  "calibration": "monotonic",
+  "threshold_search": "validation_quantiles",
+  "study_status": "CPU development rerun after audit fixes; reused benchmark partitions; independent confirmation pending",
+  "seeds": [
+    17,
+    42,
+    99
+  ],
+  "hidden_layers": [
+    64,
+    32
+  ],
+  "epochs": 25,
+  "patience": 5,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "l2": 0.0001,
+  "trees": 100,
+  "benign_budget": 0.05,
+  "bootstrap_repeats": 300,
+  "threads": 2,
+  "calibration_fallback": "identity",
+  "min_calibration_per_class": 100,
+  "policy_objective": "max_containment",
+  "containment_target": 0.95,
+  "max_monitor_fraction": 1.0,
+  "prior_test_exposure": "development_reused",
+  "require_preparation_manifest": true,
+  "history_observation": "uniform_reference"
+}

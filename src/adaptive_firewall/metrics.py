@@ -18,6 +18,9 @@ def policy_metrics(is_attack, actions):
     bb, bd = int(((a == 3) & ~y).sum()), int(((a >= 2) & ~y).sum())
     return dict(attack_count=na, benign_count=nb, attack_blocked=ab,
         attack_contained=ac, benign_blocked=bb, benign_disrupted=bd,
+        attack_allowed=int(((a==0)&y).sum()),attack_monitored=int(((a==1)&y).sum()),
+        benign_allowed=int(((a==0)&~y).sum()),benign_monitored=int(((a==1)&~y).sum()),
+        monitor_fraction=rate(int((a==1).sum()),len(y)),
         attack_blocking=rate(ab, na), attack_containment=rate(ac, na),
         benign_false_block=rate(bb, nb), benign_disruption=rate(bd, nb))
 
@@ -52,8 +55,13 @@ def expected_calibration_error(y, p, bins=10):
 def classifier_metrics(y, pred, classes, is_attack, p_attack):
     precision, recall, f1, _ = precision_recall_fscore_support(y, pred, labels=classes, average="macro", zero_division=0)
     binary_ok = np.unique(is_attack).size == 2
+    weighted=precision_recall_fscore_support(y,pred,labels=classes,average="weighted",zero_division=0)
+    supported=sorted(set(y))
+    supported_f1=precision_recall_fscore_support(y,pred,labels=supported,average="macro",zero_division=0)[2]
     return dict(accuracy=float(accuracy_score(y, pred)), macro_precision=float(precision),
         macro_recall=float(recall), macro_f1=float(f1),
+        weighted_precision=float(weighted[0]),weighted_recall=float(weighted[1]),weighted_f1=float(weighted[2]),
+        supported_class_macro_f1=float(supported_f1),zero_support_classes=sorted(set(classes)-set(y)),
         class_order=list(classes), confusion_matrix=confusion_matrix(y, pred, labels=classes).tolist(),
         per_class=classification_report(y, pred, labels=classes, output_dict=True, zero_division=0),
         attack_auroc=float(roc_auc_score(is_attack, p_attack)) if binary_ok else None,

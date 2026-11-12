@@ -6,6 +6,7 @@ import json
 import zipfile
 import numpy as np
 import pandas as pd
+from .provenance import atomic_json, register_prepared, sha256
 
 DATA_URL = "https://intrusion-detection.distrinet-research.be/WTMC2021/Dataset/dataset.zip"
 DATA_SHA256 = "4d535da19795d85376ae1397d161329e3b06fc47d9a5a68cd9be2cd7ecee0f2a"
@@ -14,8 +15,7 @@ SPLITS = ["train", "tune", "calibration", "policy", "test"]
 
 
 def write_json(path, value):
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    Path(path).write_text(json.dumps(value, indent=2, allow_nan=False), encoding="utf-8")
+    atomic_json(path,value)
 
 
 def normalized_labels(labels):
@@ -40,6 +40,10 @@ def bounded_sample(old, new, limit):
 def prepare(archive, output, train_per_class=4000, holdout_size=5000,
             test_size=20000, temporal_size=70000, chunksize=25000):
     output = Path(output)
+    if output.exists() and any(output.iterdir()):
+        raise ValueError("Choose a new preparation directory; existing inputs must be preserved")
+    if any(type(v) is not int or v<1 for v in [train_per_class,holdout_size,test_size,temporal_size,chunksize]):
+        raise ValueError("Sample and chunk sizes must be positive integers")
     output.mkdir(parents=True, exist_ok=True)
     with open(archive, "rb") as f:
         sha = hashlib.file_digest(f, "sha256").hexdigest()
@@ -96,6 +100,8 @@ def prepare(archive, output, train_per_class=4000, holdout_size=5000,
                     rows["__dst_ip"] = chunk.loc[x.index, "Dst IP"].astype(str).to_numpy()
                     rows["__ready_at"] = (ts + pd.to_timedelta(x["Flow Duration"], unit="us")).to_numpy()
                     rows["__row_id"] = [str(int(h)) for h in hashes]
+                    rows["__raw_row"] = (chunk.index.get_indexer(x.index)+chunk.index[0]+1).astype(int)
+                    rows["__flow_id"] = chunk.loc[x.index,"Flow ID"].astype(str).to_numpy() if "Flow ID" in chunk else "unavailable"
                     rows["__priority"] = (hashes // np.uint64(100)).astype(np.float64)
                     bucket = hashes % np.uint64(100)
                     rows["__split"] = np.select([bucket < 60, bucket < 70, bucket < 80, bucket < 90], SPLITS[:4], default="test")
@@ -122,16 +128,26 @@ def prepare(archive, output, train_per_class=4000, holdout_size=5000,
     audit["temporal_sample_counts"] = dict(Counter(temporal_pool["__label"]))
     audit["raw_labels"], audit["cleaned_labels"] = dict(audit["raw_labels"]), dict(audit["cleaned_labels"])
     audit["caps"] = dict(train_per_class=train_per_class, holdout_size=holdout_size, test_size=test_size, temporal_size=temporal_size)
+    audit["preparation_code_sha256"] = sha256(Path(__file__))
     random_pool.to_csv(output / "random.csv.gz", index=False)
     temporal_pool.to_csv(output / "temporal.csv.gz", index=False)
     write_json(output / "data_audit.json", audit)
+    register_prepared(output,origin="new preparation from verified pinned archive; source CSV data-row numbers retained")
     print("Prepared", len(random_pool), "random-protocol rows and", len(temporal_pool), "temporal-pool rows", flush=True)
     return audit
 
 
 def load_prepared(path, protocol="random", binary=False):
+    if protocol not in {"random","temporal"}:
+        raise ValueError("Unknown split protocol")
     frame = pd.read_csv(path, dtype={"__row_id": str})
-    frame["__ready_at"] = pd.to_datetime(frame["__ready_at"])
+    required={"__row_id","__ready_at","__label","__source"}
+    if not required.issubset(frame):
+        raise ValueError("Missing prepared metadata: "+str(sorted(required-set(frame))))
+    if frame[list(required)].isna().any().any():
+        raise ValueError("Prepared identities, labels, sources and timestamps must be present")
+    frame["__ready_at"] = pd.to_datetime(frame["__ready_at"],errors="raise")
+    if frame["__ready_at"].isna().any():raise ValueError("Missing completion times")
     frame = frame.sort_values(["__ready_at", "__row_id"], kind="stable").reset_index(drop=True)
     if frame["__row_id"].duplicated().any():
         raise ValueError("Prepared dataset contains duplicate row IDs")
@@ -142,7 +158,10 @@ def load_prepared(path, protocol="random", binary=False):
             raise ValueError("Insufficient distinct timestamps for a temporal protocol")
         frame["__split"] = np.select([frame["__ready_at"] <= b for b in boundaries], SPLITS[:4], default="test")
     if binary:
+        frame["__original_label"]=frame["__label"]
         frame["__label"] = np.where(frame["__label"].eq("BENIGN"), "BENIGN", "ATTACK")
+    if "__split" not in frame or not frame["__split"].isin(SPLITS).all():
+        raise ValueError("Prepared partition names do not match the split contract")
     for name in SPLITS:
         if not frame["__split"].eq(name).any():
             raise ValueError("Empty partition: " + name)

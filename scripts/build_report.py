@@ -135,7 +135,7 @@ def main():
         "[2] G. Engelen, V. Rimmer, and W. Joosen, ‘Troubleshooting an Intrusion Detection Dataset: the CICIDS2017 Case Study,’ IEEE SPW, 2021. https://doi.org/10.1109/SPW53761.2021.00009\n",
         "[3] L. Liu, G. Engelen, T. Lynar, D. Essam, and W. Joosen, ‘Error Prevalence in NIDS datasets: A Case Study on CIC-IDS-2017 and CSE-CIC-IDS-2018,’ IEEE CNS, 2022. https://intrusion-detection.distrinet-research.be/CNS2022/index.html\n",
         "[4] Y. Mirsky, T. Doitshman, Y. Elovici, and A. Shabtai, ‘Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection,’ NDSS, 2018. https://cris.bgu.ac.il/en/publications/kitsune-an-ensemble-of-autoencoders-for-online-network-intrusion-/\n",
-        "[5] M. Cantone, C. Marrocco, and A. Bria, ‘On the Cross-Dataset Generalization of Machine Learning for Network Intrusion Detection,’ arXiv:2402.10974, 2024 preprint. https://arxiv.org/abs/2402.10974\n",
+        "[5] M. Cantone, C. Marrocco, and A. Bria, ‘On the Cross-Dataset Generalization of Machine Learning for Network Intrusion Detection,’ IEEE Access 12:144489-144508, 2024; DOI 10.1109/ACCESS.2024.3472907. https://arxiv.org/abs/2402.10974\n",
         "[6] A. El Mahdaouy, I. Ait Yahia, S. Oualil, and I. Berrada, ‘Deep Learning for Contextualized NetFlow-Based Network Intrusion Detection: Methods, Data, Evaluation and Deployment,’ arXiv:2602.05594, 2026 preprint. https://arxiv.org/abs/2602.05594\n",
         "[7] IEEE Author Center, ‘Submission and Peer Review Policies,’ accessed 12 November 2026. https://journals.ieeeauthorcenter.ieee.org/become-an-ieee-journal-author/publishing-ethics/guidelines-and-policies/submission-and-peer-review-policies/\n"]
     (ROOT/"paper").mkdir(exist_ok=True)

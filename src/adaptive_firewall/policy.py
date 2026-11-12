@@ -45,7 +45,8 @@ def decide(scores, thresholds=Thresholds()):
     return np.searchsorted([thresholds.monitor, thresholds.rate_limit, thresholds.block], s, side="right")
 
 
-def select_policy(scores, is_attack, benign_budget=0.05, grid=None,search="validation_quantiles"):
+def select_policy(scores, is_attack, benign_budget=0.05, grid=None,search="validation_quantiles",
+                  objective="max_containment",containment_target=.95,max_monitor_fraction=1.):
     """Maximize containment subject to benign disruption budget, using policy split only.
 
     Ties: higher attack blocking, lower false-blocking, lower disruption, then
@@ -53,6 +54,13 @@ def select_policy(scores, is_attack, benign_budget=0.05, grid=None,search="valid
     """
     from .metrics import policy_metrics
     y = np.asarray(is_attack, dtype=bool)
+    if objective not in {"max_containment","min_disruption"}:
+        raise ValueError("Unknown policy objective")
+    if not 0<=containment_target<=1 or not 0<=max_monitor_fraction<=1:
+        raise ValueError("Invalid containment target or monitoring budget")
+    # Validate every score before candidate generation, including empty/misaligned inputs.
+    values=risk_score(np.asarray(scores,dtype=float)/100.)
+    if values.shape!=y.shape:raise ValueError("Scores and labels must align")
     if not 0 <= benign_budget <= 1 or not y.any() or y.all():
         raise ValueError("Policy selection requires both classes and a valid benign budget")
     if grid is None:
@@ -70,10 +78,20 @@ def select_policy(scores, is_attack, benign_budget=0.05, grid=None,search="valid
     rows = []
     for thresholds in grid:
         metrics = policy_metrics(y, decide(scores, thresholds))
-        rows.append({**asdict(thresholds), **metrics, "feasible": metrics["benign_disruption"] <= benign_budget})
+        feasible=metrics["benign_disruption"]<=benign_budget and metrics["monitor_fraction"]<=max_monitor_fraction
+        if objective=="min_disruption":feasible=feasible and metrics["attack_containment"]>=containment_target
+        rows.append({**asdict(thresholds), **metrics, "feasible": feasible})
     feasible = [r for r in rows if r["feasible"]]
     if not feasible:
         # No test-informed relaxation: explicitly return no selected policy.
         return None, rows
-    best = min(feasible, key=lambda r: (-r["attack_containment"], -r["attack_blocking"], r["benign_false_block"], r["benign_disruption"], r["monitor"], r["rate_limit"], r["block"]))
+    best = min(feasible,key=lambda r: policy_order(r,objective))
     return Thresholds(best["monitor"], best["rate_limit"], best["block"]), rows
+
+
+def policy_order(row,objective="max_containment"):
+    if objective=="min_disruption":
+        return (row["benign_disruption"],row["benign_false_block"],-row["attack_containment"],
+                -row["attack_blocking"],row["monitor"],row["rate_limit"],row["block"])
+    return (-row["attack_containment"],-row["attack_blocking"],row["benign_false_block"],
+            row["benign_disruption"],row["monitor"],row["rate_limit"],row["block"])

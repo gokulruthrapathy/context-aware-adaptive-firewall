@@ -1,5 +1,8 @@
 # Implemented architecture
 
+This is the original architecture record. The bounded persistent history,
+configuration/provenance and completion fixes are documented in V2_WORKFLOW.md.
+
 This describes the new package, not the missing original Python scripts.
 
 ```mermaid
