@@ -1,0 +1,19 @@
+{
+  "seconds": 8.509746999945492,
+  "history": [],
+  "best_epoch": null,
+  "minimum_loss_epoch": null,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "identity",
+    "attack_support": 28,
+    "benign_support": 6956,
+    "slope": null,
+    "intercept": null,
+    "requested_method": "monotonic",
+    "fallback_reason": "calibration support below 100 per class",
+    "boundary_solution": false,
+    "calibration_brier_raw": 0.004370690412060854,
+    "calibration_brier_used": 0.004370690412060854
+  }
+}

@@ -1,5 +1,9 @@
 # What remains before an IEEE journal submission
 
+Version 0.2 audit fixes, executed CPU notebook and new development results are
+documented in docs/V2_WORKFLOW.md and docs/V2_RESULTS.md. Independent confirmation
+and a supported research contribution remain outstanding.
+
 ## Current conclusion
 
 The supplied presentation and screenshot do not establish a reproducible implementation. This package replaces that missing implementation with new, inspectable code and real pilot experiments. It does not demonstrate that the original slide metrics were correct, and it does not establish a publishable original contribution by itself.

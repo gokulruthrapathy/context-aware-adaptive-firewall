@@ -1,0 +1,138 @@
+{
+  "model": "dummy",
+  "seed": 17,
+  "features": 78,
+  "classifier": {
+    "accuracy": 0.39427344309234075,
+    "macro_precision": 0.19713672154617037,
+    "macro_recall": 0.5,
+    "macro_f1": 0.2827805729541021,
+    "weighted_precision": 0.15545154792788923,
+    "weighted_recall": 0.39427344309234075,
+    "weighted_f1": 0.22298574027647736,
+    "supported_class_macro_f1": 0.2827805729541021,
+    "zero_support_classes": [],
+    "class_order": [
+      "ATTACK",
+      "BENIGN"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        4231
+      ],
+      [
+        0,
+        2754
+      ]
+    ],
+    "per_class": {
+      "ATTACK": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4231.0
+      },
+      "BENIGN": {
+        "precision": 0.39427344309234075,
+        "recall": 1.0,
+        "f1-score": 0.5655611459082042,
+        "support": 2754.0
+      },
+      "accuracy": 0.39427344309234075,
+      "macro avg": {
+        "precision": 0.19713672154617037,
+        "recall": 0.5,
+        "f1-score": 0.2827805729541021,
+        "support": 6985.0
+      },
+      "weighted avg": {
+        "precision": 0.15545154792788923,
+        "recall": 0.39427344309234075,
+        "f1-score": 0.22298574027647736,
+        "support": 6985.0
+      }
+    },
+    "attack_auroc": 0.5,
+    "attack_average_precision": 0.6057265569076593,
+    "attack_brier": 0.4366856697840404,
+    "attack_ece": 0.4448188110001521,
+    "test_rows_with_unseen_training_class": 0,
+    "raw_attack_brier": 0.4366856697840404
+  },
+  "fixed_policy": {
+    "attack_count": 4231,
+    "benign_count": 2754,
+    "attack_blocked": 0,
+    "attack_contained": 0,
+    "benign_blocked": 0,
+    "benign_disrupted": 0,
+    "attack_allowed": 4231,
+    "attack_monitored": 0,
+    "benign_allowed": 2754,
+    "benign_monitored": 0,
+    "monitor_fraction": 0.0,
+    "attack_blocking": 0.0,
+    "attack_containment": 0.0,
+    "benign_false_block": 0.0,
+    "benign_disruption": 0.0,
+    "attack_blocking_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "attack_containment_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "benign_false_block_ci95": [
+      0.0,
+      0.0013385657222771262
+    ],
+    "benign_disruption_ci95": [
+      0.0,
+      0.0013385657222771262
+    ]
+  },
+  "selected_policy": {
+    "attack_count": 4231,
+    "benign_count": 2754,
+    "attack_blocked": 0,
+    "attack_contained": 0,
+    "benign_blocked": 0,
+    "benign_disrupted": 0,
+    "attack_allowed": 0,
+    "attack_monitored": 4231,
+    "benign_allowed": 0,
+    "benign_monitored": 2754,
+    "monitor_fraction": 1.0,
+    "attack_blocking": 0.0,
+    "attack_containment": 0.0,
+    "benign_false_block": 0.0,
+    "benign_disruption": 0.0,
+    "attack_blocking_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "attack_containment_ci95": [
+      0.0,
+      0.0008714894376738721
+    ],
+    "benign_false_block_ci95": [
+      0.0,
+      0.0013385657222771262
+    ],
+    "benign_disruption_ci95": [
+      0.0,
+      0.0013385657222771262
+    ]
+  },
+  "thresholds": {
+    "monitor": 8.045387295375363,
+    "rate_limit": 16.090774590750726,
+    "block": 25.0
+  },
+  "inference_seconds": 0.01963989995419979,
+  "microseconds_per_flow": 2.811725118711495,
+  "timing_scope": "batch feature transformation + prediction + binary calibration; excludes flow extraction and history generation",
+  "selection_manifest_sha256": "d9be444e7a12756ec7cc731f2bb33820f97054540a3f227c9bd6e8487566dbb5"
+}

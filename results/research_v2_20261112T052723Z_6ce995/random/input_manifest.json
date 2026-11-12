@@ -1,0 +1,22 @@
+{
+  "prepared": {
+    "file": "random.csv.gz",
+    "sha256": "846df8420901565316be53b7c34b184b2154725f5e98b44fd4e925434bd9d8e7",
+    "bytes": 9589106
+  },
+  "audit": {
+    "file": "data_audit.json",
+    "sha256": "068a54c715ae56e1156844750d4a4083c7984ee5e60f0b8343ab622457d4f7fc",
+    "bytes": 7147
+  },
+  "history_reference": {
+    "file": "temporal.csv.gz",
+    "sha256": "ea16ea3b53c067f3709c24353b328b87138288928f4835cc592e71ea9e1f4889",
+    "bytes": 11432031
+  },
+  "preparation_manifest": {
+    "file": "preparation_manifest.json",
+    "sha256": "c1b2a0d8273639addf95a098a297cd768cf4b4334b0c7baced9577bf1be49164",
+    "bytes": 473
+  }
+}

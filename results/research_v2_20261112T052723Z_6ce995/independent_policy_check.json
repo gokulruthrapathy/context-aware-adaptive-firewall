@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "frozen_policy_assignments_checked": 180,
+  "errors": [],
+  "scope": "Independent NumPy boundary and numerator check from saved probability CSVs; no models invoked"
+}

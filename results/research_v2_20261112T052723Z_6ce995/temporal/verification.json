@@ -1,0 +1,7 @@
+{
+  "status": "verified",
+  "models": 18,
+  "test_rows": 6985,
+  "checked": "model/source/evidence hashes, split identities, classifier argmax/metrics, calibration map when recorded, policy ranking, actions, denominators, intervals and class-by-action totals",
+  "limitation": "Export consistency is not an independent retraining replication or proof of dataset ground truth"
+}

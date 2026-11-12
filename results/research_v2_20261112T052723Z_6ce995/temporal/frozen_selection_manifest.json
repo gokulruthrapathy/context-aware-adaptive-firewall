@@ -1,0 +1,1808 @@
+{
+  "schema_version": 2,
+  "code_sha256": "f911628bd069eded67217624528cd447644e2963d7141df8a39d4050f6b2480b",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  },
+  "config": {
+    "protocol": "temporal",
+    "binary": true,
+    "calibration": "monotonic",
+    "calibration_fallback": "identity",
+    "min_calibration_per_class": 100,
+    "threshold_search": "validation_quantiles",
+    "policy_objective": "max_containment",
+    "containment_target": 0.95,
+    "max_monitor_fraction": 1.0,
+    "benign_budget": 0.05,
+    "seeds": [
+      17,
+      42,
+      99
+    ],
+    "hidden_layers": [
+      64,
+      32
+    ],
+    "epochs": 25,
+    "patience": 5,
+    "min_delta": 0.0001,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "trees": 100,
+    "logistic_iterations": 500,
+    "bootstrap_repeats": 300,
+    "threads": 2,
+    "history_observation": "uniform_reference",
+    "history_max_sources": 4096,
+    "history_max_events_per_source": 10000,
+    "history_max_total_events": 100000,
+    "history_max_pending_events": 100000,
+    "models": [
+      {
+        "name": "baseline_dnn",
+        "kind": "dnn",
+        "variant": "baseline"
+      },
+      {
+        "name": "engineered_dnn",
+        "kind": "dnn",
+        "variant": "engineered"
+      },
+      {
+        "name": "context_dnn",
+        "kind": "dnn",
+        "variant": "context"
+      },
+      {
+        "name": "random_forest",
+        "kind": "random_forest",
+        "variant": "baseline"
+      },
+      {
+        "name": "logistic",
+        "kind": "logistic",
+        "variant": "baseline"
+      },
+      {
+        "name": "dummy",
+        "kind": "dummy",
+        "variant": "baseline"
+      }
+    ],
+    "study_status": "CPU development rerun after audit fixes; reused benchmark partitions; independent confirmation pending",
+    "prior_test_exposure": "development_reused",
+    "require_preparation_manifest": true
+  },
+  "classes": [
+    "ATTACK",
+    "BENIGN"
+  ],
+  "artifacts": [
+    {
+      "name": "baseline_dnn_seed17",
+      "model": "baseline_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/baseline_dnn_seed17.joblib",
+      "artifact_sha256": "17ac90f51d607bb0a33ef39e204b8a0a631f916c2acc4c00ff0b4122a809a166",
+      "policy": {
+        "monitor": 0.08166134357452398,
+        "rate_limit": 0.16332268714904796,
+        "block": 1.07642928759257
+      },
+      "raw_policy": {
+        "monitor": 0.08166134357452398,
+        "rate_limit": 0.16332268714904796,
+        "block": 1.07642928759257
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.006302367160830754,
+        "calibration_brier_used": 0.006302367160830754
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.08166134357452398,
+            "rate_limit": 0.16332268714904796,
+            "block": 1.07642928759257
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.08166134357452398,
+            "rate_limit": 0.16332268714904796,
+            "block": 1.07642928759257
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "baseline_dnn_seed42",
+      "model": "baseline_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/baseline_dnn_seed42.joblib",
+      "artifact_sha256": "3714ec4c7abde320e51d0bb4a6abc50cdf738bf259967407e8ef82f583ce05ef",
+      "policy": {
+        "monitor": 0.1313853263854981,
+        "rate_limit": 0.2627706527709962,
+        "block": 0.6303866704305013
+      },
+      "raw_policy": {
+        "monitor": 0.1313853263854981,
+        "rate_limit": 0.2627706527709962,
+        "block": 0.6303866704305013
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004930654856758254,
+        "calibration_brier_used": 0.004930654856758254
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.1313853263854981,
+            "rate_limit": 0.2627706527709962,
+            "block": 0.6303866704305013
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.1313853263854981,
+            "rate_limit": 0.2627706527709962,
+            "block": 0.6303866704305013
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "baseline_dnn_seed99",
+      "model": "baseline_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/baseline_dnn_seed99.joblib",
+      "artifact_sha256": "0c565fcbf67fe827539e9eb618634aa336f021790f4a7f3a4c2593bc7d7224d8",
+      "policy": {
+        "monitor": 0.13104677200317383,
+        "rate_limit": 0.26209354400634766,
+        "block": 0.4792249202728272
+      },
+      "raw_policy": {
+        "monitor": 0.13104677200317383,
+        "rate_limit": 0.26209354400634766,
+        "block": 0.4792249202728272
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004496061505074348,
+        "calibration_brier_used": 0.004496061505074348
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.13104677200317383,
+            "rate_limit": 0.26209354400634766,
+            "block": 0.4792249202728272
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.13104677200317383,
+            "rate_limit": 0.26209354400634766,
+            "block": 0.4792249202728272
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "engineered_dnn_seed17",
+      "model": "engineered_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "models/engineered_dnn_seed17.joblib",
+      "artifact_sha256": "67e2bdb0e8f46554b802b60c30dda1895bfe06355397e1e5ea6f8d4bb2f63e17",
+      "policy": {
+        "monitor": 0.020322203636169434,
+        "rate_limit": 0.04064440727233887,
+        "block": 0.0769297281901042
+      },
+      "raw_policy": {
+        "monitor": 0.020322203636169434,
+        "rate_limit": 0.04064440727233887,
+        "block": 0.0769297281901042
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004533725972742677,
+        "calibration_brier_used": 0.004533725972742677
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.020322203636169434,
+            "rate_limit": 0.04064440727233887,
+            "block": 0.0769297281901042
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.020322203636169434,
+            "rate_limit": 0.04064440727233887,
+            "block": 0.0769297281901042
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "engineered_dnn_seed42",
+      "model": "engineered_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "models/engineered_dnn_seed42.joblib",
+      "artifact_sha256": "f0da70a400b44ea8e4dd82fe730850f7b6384cea94b56c218b6fcc062b9d90e9",
+      "policy": {
+        "monitor": 0.059491793314615925,
+        "rate_limit": 0.11898358662923185,
+        "block": 0.22328039010365838
+      },
+      "raw_policy": {
+        "monitor": 0.059491793314615925,
+        "rate_limit": 0.11898358662923185,
+        "block": 0.22328039010365838
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004519542011753165,
+        "calibration_brier_used": 0.004519542011753165
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.059491793314615925,
+            "rate_limit": 0.11898358662923185,
+            "block": 0.22328039010365838
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.059491793314615925,
+            "rate_limit": 0.11898358662923185,
+            "block": 0.22328039010365838
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "engineered_dnn_seed99",
+      "model": "engineered_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "engineered",
+      "features": 92,
+      "path": "models/engineered_dnn_seed99.joblib",
+      "artifact_sha256": "6d40e1c79a382fa45646843d645bbd95b54ba130e8ab9867939d283653a890c4",
+      "policy": {
+        "monitor": 0.10901212692260746,
+        "rate_limit": 0.21802425384521493,
+        "block": 0.3986199696858725
+      },
+      "raw_policy": {
+        "monitor": 0.10901212692260746,
+        "rate_limit": 0.21802425384521493,
+        "block": 0.3986199696858725
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004572855700348403,
+        "calibration_brier_used": 0.004572855700348403
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.10901212692260746,
+            "rate_limit": 0.21802425384521493,
+            "block": 0.3986199696858725
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.10901212692260746,
+            "rate_limit": 0.21802425384521493,
+            "block": 0.3986199696858725
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "context_dnn_seed17",
+      "model": "context_dnn",
+      "seed": 17,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "models/context_dnn_seed17.joblib",
+      "artifact_sha256": "983eb403687cc3620cd1a90c54687f9ff4f8bb6cd5111f24cb18fa870ca7c036",
+      "policy": {
+        "monitor": 12.5,
+        "rate_limit": 25.0,
+        "block": 60.0
+      },
+      "raw_policy": {
+        "monitor": 12.5,
+        "rate_limit": 25.0,
+        "block": 60.0
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004164745887001433,
+        "calibration_brier_used": 0.004164745887001433
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 12.5,
+            "rate_limit": 25.0,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 12.5,
+            "rate_limit": 25.0,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "context_dnn_seed42",
+      "model": "context_dnn",
+      "seed": 42,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "models/context_dnn_seed42.joblib",
+      "artifact_sha256": "c852fe860d9ff03aea02ced36239c5eb40a037d9482e8d09b5f717ab9fce0444",
+      "policy": {
+        "monitor": 12.5,
+        "rate_limit": 25.0,
+        "block": 60.0
+      },
+      "raw_policy": {
+        "monitor": 12.5,
+        "rate_limit": 25.0,
+        "block": 60.0
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.00427612802485256,
+        "calibration_brier_used": 0.00427612802485256
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 12.5,
+            "rate_limit": 25.0,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 12.5,
+            "rate_limit": 25.0,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "context_dnn_seed99",
+      "model": "context_dnn",
+      "seed": 99,
+      "kind": "dnn",
+      "variant": "context",
+      "features": 100,
+      "path": "models/context_dnn_seed99.joblib",
+      "artifact_sha256": "74bc592ae606176c1452f2162fee9209cb4cb93e80ef970bd3fd762745440ad0",
+      "policy": {
+        "monitor": 25.0,
+        "rate_limit": 60.0,
+        "block": 96.79647721350193
+      },
+      "raw_policy": {
+        "monitor": 25.0,
+        "rate_limit": 60.0,
+        "block": 96.79647721350193
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004245703044726968,
+        "calibration_brier_used": 0.004245703044726968
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 25.0,
+            "rate_limit": 60.0,
+            "block": 96.79647721350193
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 25.0,
+            "rate_limit": 60.0,
+            "block": 96.79647721350193
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "random_forest_seed17",
+      "model": "random_forest",
+      "seed": 17,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/random_forest_seed17.joblib",
+      "artifact_sha256": "06fd5120d141a0090b02d7ef5bf9c0a99bf17cb8daaac2e82750ef4508d6de69",
+      "policy": {
+        "monitor": 0.5000000000000004,
+        "rate_limit": 1.0000000000000009,
+        "block": 3.5833333333333273
+      },
+      "raw_policy": {
+        "monitor": 0.5000000000000004,
+        "rate_limit": 1.0000000000000009,
+        "block": 3.5833333333333273
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004370690412060854,
+        "calibration_brier_used": 0.004370690412060854
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 3.5833333333333273
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 1.7916666666666636,
+            "rate_limit": 3.5833333333333273,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 1.7916666666666636,
+            "rate_limit": 3.5833333333333273,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 3.5833333333333273
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 1.7916666666666636,
+            "rate_limit": 3.5833333333333273,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 1.7916666666666636,
+            "rate_limit": 3.5833333333333273,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 60.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "random_forest_seed42",
+      "model": "random_forest",
+      "seed": 42,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/random_forest_seed42.joblib",
+      "artifact_sha256": "dbb4309804b88771b6ed9bad7345da08ae4672b0e15a5614f8705a1db8736497",
+      "policy": {
+        "monitor": 0.9533333333333384,
+        "rate_limit": 1.9066666666666767,
+        "block": 9.916666666666673
+      },
+      "raw_policy": {
+        "monitor": 0.9533333333333384,
+        "rate_limit": 1.9066666666666767,
+        "block": 9.916666666666673
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004855749669352758,
+        "calibration_brier_used": 0.004855749669352758
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.9533333333333384,
+            "rate_limit": 1.9066666666666767,
+            "block": 9.916666666666673
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 5.10000000000001,
+            "rate_limit": 10.20000000000002,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 4.958333333333337,
+            "rate_limit": 9.916666666666673,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.9533333333333384,
+            "rate_limit": 1.9066666666666767,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.9533333333333384,
+            "rate_limit": 1.9066666666666767,
+            "block": 9.916666666666673
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 5.10000000000001,
+            "rate_limit": 10.20000000000002,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 4.958333333333337,
+            "rate_limit": 9.916666666666673,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.9533333333333384,
+            "rate_limit": 1.9066666666666767,
+            "block": 60.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "random_forest_seed99",
+      "model": "random_forest",
+      "seed": 99,
+      "kind": "random_forest",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/random_forest_seed99.joblib",
+      "artifact_sha256": "be2f6edf22d1ce5546caa67b237f8e12d8c997ed832af87524009b853f62e969",
+      "policy": {
+        "monitor": 0.5000000000000004,
+        "rate_limit": 1.0000000000000009,
+        "block": 4.583333333333329
+      },
+      "raw_policy": {
+        "monitor": 0.5000000000000004,
+        "rate_limit": 1.0000000000000009,
+        "block": 4.583333333333329
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.004433599759069393,
+        "calibration_brier_used": 0.004433599759069393
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 4.583333333333329
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 2.2916666666666643,
+            "rate_limit": 4.583333333333329,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 2.2916666666666643,
+            "rate_limit": 4.583333333333329,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 4.583333333333329
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": {
+            "monitor": 2.2916666666666643,
+            "rate_limit": 4.583333333333329,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": {
+            "monitor": 2.2916666666666643,
+            "rate_limit": 4.583333333333329,
+            "block": 60.0
+          }
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": {
+            "monitor": 0.5000000000000004,
+            "rate_limit": 1.0000000000000009,
+            "block": 60.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "logistic_seed17",
+      "model": "logistic",
+      "seed": 17,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/logistic_seed17.joblib",
+      "artifact_sha256": "a8404b6ab08b00a80e5cbfd981a309a144dffb7525394323aae3002e9426e8fc",
+      "policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "raw_policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.006294707736174824,
+        "calibration_brier_used": 0.006294707736174824
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "logistic_seed42",
+      "model": "logistic",
+      "seed": 42,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/logistic_seed42.joblib",
+      "artifact_sha256": "da97524bb5e956c9b488aa1cafc02336574da52ab1259e84d1c8c6ac82433603",
+      "policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "raw_policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.006294707736174824,
+        "calibration_brier_used": 0.006294707736174824
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "logistic_seed99",
+      "model": "logistic",
+      "seed": 99,
+      "kind": "logistic",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/logistic_seed99.joblib",
+      "artifact_sha256": "0a4e75dd4520b87e53be374c166ea652a89899f901cb5b2c8b727a8b7d6e7d96",
+      "policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "raw_policy": {
+        "monitor": 0.5368598302205417,
+        "rate_limit": 1.0737196604410835,
+        "block": 6.701681017875677
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.006294707736174824,
+        "calibration_brier_used": 0.006294707736174824
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 0.5368598302205417,
+            "rate_limit": 1.0737196604410835,
+            "block": 6.701681017875677
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "dummy_seed17",
+      "model": "dummy",
+      "seed": 17,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/dummy_seed17.joblib",
+      "artifact_sha256": "44b3a31d247db066354b01fd0797dd57b1e87eb116b6a22abb66fb95503b27c7",
+      "policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "raw_policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.02861025547499075,
+        "calibration_brier_used": 0.02861025547499075
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "dummy_seed42",
+      "model": "dummy",
+      "seed": 42,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/dummy_seed42.joblib",
+      "artifact_sha256": "a2b9f32a22c38ccb2b0961dc713756e2a63106734d33da04a5dfd75c004391cf",
+      "policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "raw_policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.02861025547499075,
+        "calibration_brier_used": 0.02861025547499075
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    },
+    {
+      "name": "dummy_seed99",
+      "model": "dummy",
+      "seed": 99,
+      "kind": "dummy",
+      "variant": "baseline",
+      "features": 78,
+      "path": "models/dummy_seed99.joblib",
+      "artifact_sha256": "594ad070791c5ec2dd4cf1c6ac567dd93da37a8497009f51b00ddb93f693a4e8",
+      "policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "raw_policy": {
+        "monitor": 8.045387295375363,
+        "rate_limit": 16.090774590750726,
+        "block": 25.0
+      },
+      "calibration": {
+        "method": "identity",
+        "attack_support": 28,
+        "benign_support": 6956,
+        "slope": null,
+        "intercept": null,
+        "requested_method": "monotonic",
+        "fallback_reason": "calibration support below 100 per class",
+        "boundary_solution": false,
+        "calibration_brier_raw": 0.02861025547499075,
+        "calibration_brier_used": 0.02861025547499075
+      },
+      "comparison_policies": [
+        {
+          "name": "used_selected",
+          "score_source": "used",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "used_target_0.90",
+          "score_source": "used",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.95",
+          "score_source": "used",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "used_target_0.99",
+          "score_source": "used",
+          "target": 0.99,
+          "thresholds": null
+        },
+        {
+          "name": "raw_selected",
+          "score_source": "raw",
+          "thresholds": {
+            "monitor": 8.045387295375363,
+            "rate_limit": 16.090774590750726,
+            "block": 25.0
+          }
+        },
+        {
+          "name": "raw_target_0.90",
+          "score_source": "raw",
+          "target": 0.9,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.95",
+          "score_source": "raw",
+          "target": 0.95,
+          "thresholds": null
+        },
+        {
+          "name": "raw_target_0.99",
+          "score_source": "raw",
+          "target": 0.99,
+          "thresholds": null
+        }
+      ]
+    }
+  ],
+  "protocol": "temporal",
+  "test_used_for_selection": false,
+  "prior_test_exposure": "development_reused",
+  "independent_confirmation": false,
+  "frozen_utc": "2026-11-12T05:30:41.591345+00:00",
+  "environment": {
+    "recorded_utc": "2026-11-12T05:29:35.065804+00:00",
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "git_commit": "4fcccb93f814dc8b6bc9f6fd38b1be9c8dd1578c",
+    "git_branch": "research-fixes-colab",
+    "git_dirty": true,
+    "physical_memory_bytes": 16858648576,
+    "available_memory_bytes_at_start": 2758430720,
+    "environment_files": {
+      "pyproject.toml": "72fc6a609b3b99cd9b5649c31282d75abacd0ba1eb29d84923265bb580b16082",
+      "requirements-lock.txt": "bbfc3ab8ef929b56ee1a269b999652476da041a8d5fef66c3a2b1cd02c413069"
+    }
+  },
+  "inputs": {
+    "prepared": {
+      "file": "temporal.csv.gz",
+      "sha256": "ea16ea3b53c067f3709c24353b328b87138288928f4835cc592e71ea9e1f4889",
+      "bytes": 11432031
+    },
+    "audit": {
+      "file": "data_audit.json",
+      "sha256": "068a54c715ae56e1156844750d4a4083c7984ee5e60f0b8343ab622457d4f7fc",
+      "bytes": 7147
+    },
+    "preparation_manifest": {
+      "file": "preparation_manifest.json",
+      "sha256": "c1b2a0d8273639addf95a098a297cd768cf4b4334b0c7baced9577bf1be49164",
+      "bytes": 473
+    }
+  },
+  "history_contract": {
+    "observation": "cohort",
+    "limits": {
+      "max_sources": 4096,
+      "max_events_per_source": 10000,
+      "max_total_events": 100000,
+      "max_pending_events": 100000
+    },
+    "strictly_earlier": true,
+    "equal_time_pending": true,
+    "evicted_sources": 0,
+    "truncated_events": 0
+  },
+  "config_sha256": "9924e7faae6217439a9be98123c4f0808cbc3e1cedb394d0414996ec57c694c6",
+  "split_manifest_sha256": "fc0b42c2cd38dbded4001fb47c48057949320769d63ca34015e1e33523c1c88b",
+  "validation_candidates_sha256": "1a8a284de9153a97ee08a76f74d918ceec775afaa9397f0073facb8011377a79",
+  "caveats": [
+    "Post-flow completed-record scoring, not prevention of packets already transmitted",
+    "Rate-limit containment is an offline proxy, not measured mitigation",
+    "History is based on retained sampled flows, not the full original capture",
+    "Random protocol mixes capture times; temporal protocol is a separate forward-time test",
+    "Exact-feature deduplication changes the original capture distribution"
+  ]
+}

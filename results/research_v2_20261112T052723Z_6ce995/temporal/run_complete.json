@@ -1,0 +1,10 @@
+{
+  "test_rows": 6985,
+  "frozen_manifest_sha256": "d9be444e7a12756ec7cc731f2bb33820f97054540a3f227c9bd6e8487566dbb5",
+  "evidence_manifest_sha256": "6a96dc195554919e220b1c69684343fa013dfb92be9f78ef96f0f24bb05a3c81",
+  "models_evaluated": 18,
+  "status": "complete",
+  "completed_utc": "2026-11-12T05:30:55.363065+00:00",
+  "prior_test_exposure": "development_reused",
+  "independent_confirmation": false
+}

@@ -12,6 +12,11 @@ controls and remaining limitations are documented in [the v2 workflow](docs/V2_W
 Old results remain intact. New results are development reruns on a previously
 examined benchmark; they are not fresh independent confirmation.
 
+The completed local CPU execution, all 36 new model/seed runs and policy comparisons
+are summarized in [the version 0.2 results](docs/V2_RESULTS.md). The
+[executed notebook](notebooks/Adaptive_Firewall_Executed_Local.ipynb) retains all ten
+code cells and their local outputs; it does not claim a hosted Colab execution.
+
 The sections below retain the original package overview. For current preparation,
 use a new `data/prepared_v2` directory; the v2 runner requires its preparation manifest.
 The original `pilot_*` configurations and results describe historical experiments.

@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-12T05:27:41.599577+00:00",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "logical_cpus": 16,
+  "git_commit": "4fcccb93f814dc8b6bc9f6fd38b1be9c8dd1578c",
+  "git_branch": "research-fixes-colab",
+  "git_dirty": true,
+  "physical_memory_bytes": 16858648576,
+  "available_memory_bytes_at_start": 2987278336,
+  "environment_files": {
+    "pyproject.toml": "72fc6a609b3b99cd9b5649c31282d75abacd0ba1eb29d84923265bb580b16082",
+    "requirements-lock.txt": "bbfc3ab8ef929b56ee1a269b999652476da041a8d5fef66c3a2b1cd02c413069"
+  }
+}

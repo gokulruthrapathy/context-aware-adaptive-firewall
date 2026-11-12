@@ -1,0 +1,13 @@
+{
+  "observation": "cohort",
+  "limits": {
+    "max_sources": 4096,
+    "max_events_per_source": 10000,
+    "max_total_events": 100000,
+    "max_pending_events": 100000
+  },
+  "strictly_earlier": true,
+  "equal_time_pending": true,
+  "evicted_sources": 0,
+  "truncated_events": 0
+}

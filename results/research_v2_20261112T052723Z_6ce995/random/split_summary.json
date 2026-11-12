@@ -1,0 +1,94 @@
+{
+  "train": {
+    "rows": 27658,
+    "labels": {
+      "BENIGN": 4000,
+      "DoS Hulk": 4000,
+      "DoS GoldenEye": 4000,
+      "DDoS": 4000,
+      "PortScan": 3804,
+      "FTP-Patator": 2376,
+      "DoS slowloris": 2122,
+      "SSH-Patator": 1750,
+      "DoS Slowhttptest": 1033,
+      "Bot": 440,
+      "Web Attack - Brute Force": 84,
+      "Infiltration": 19,
+      "Web Attack - XSS": 17,
+      "Web Attack - Sql Injection": 7,
+      "Heartbleed": 6
+    },
+    "earliest": "2017-07-03 14:02:12.030473",
+    "latest": "2017-07-07 21:59:03.777052"
+  },
+  "tune": {
+    "rows": 4993,
+    "labels": {
+      "BENIGN": 4023,
+      "DoS Hulk": 429,
+      "DDoS": 263,
+      "PortScan": 225,
+      "DoS GoldenEye": 19,
+      "DoS slowloris": 14,
+      "SSH-Patator": 9,
+      "FTP-Patator": 6,
+      "Bot": 3,
+      "DoS Slowhttptest": 2
+    },
+    "earliest": "2017-07-03 14:00:08.022097",
+    "latest": "2017-07-07 22:00:01.529877"
+  },
+  "calibration": {
+    "rows": 4990,
+    "labels": {
+      "BENIGN": 3938,
+      "DoS Hulk": 475,
+      "DDoS": 271,
+      "PortScan": 241,
+      "DoS GoldenEye": 21,
+      "FTP-Patator": 17,
+      "DoS slowloris": 11,
+      "SSH-Patator": 10,
+      "DoS Slowhttptest": 4,
+      "Bot": 2
+    },
+    "earliest": "2017-07-03 13:56:58.061818",
+    "latest": "2017-07-07 22:02:13.131328"
+  },
+  "policy": {
+    "rows": 4986,
+    "labels": {
+      "BENIGN": 4010,
+      "DoS Hulk": 430,
+      "DDoS": 259,
+      "PortScan": 236,
+      "DoS GoldenEye": 15,
+      "DoS slowloris": 13,
+      "SSH-Patator": 10,
+      "FTP-Patator": 6,
+      "DoS Slowhttptest": 4,
+      "Bot": 2,
+      "Web Attack - XSS": 1
+    },
+    "earliest": "2017-07-03 13:57:51.000536",
+    "latest": "2017-07-07 22:00:53.988989"
+  },
+  "test": {
+    "rows": 19948,
+    "labels": {
+      "BENIGN": 16059,
+      "DoS Hulk": 1736,
+      "DDoS": 1019,
+      "PortScan": 891,
+      "DoS GoldenEye": 78,
+      "FTP-Patator": 51,
+      "SSH-Patator": 45,
+      "DoS slowloris": 41,
+      "DoS Slowhttptest": 18,
+      "Bot": 8,
+      "Web Attack - Brute Force": 2
+    },
+    "earliest": "2017-07-03 13:56:58.000048",
+    "latest": "2017-07-07 22:02:20.000199"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "protocol": "temporal",
+  "binary": true,
+  "calibration": "monotonic",
+  "calibration_fallback": "identity",
+  "min_calibration_per_class": 100,
+  "threshold_search": "validation_quantiles",
+  "policy_objective": "max_containment",
+  "containment_target": 0.95,
+  "max_monitor_fraction": 1.0,
+  "benign_budget": 0.05,
+  "seeds": [
+    17,
+    42,
+    99
+  ],
+  "hidden_layers": [
+    64,
+    32
+  ],
+  "epochs": 25,
+  "patience": 5,
+  "min_delta": 0.0001,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "l2": 0.0001,
+  "trees": 100,
+  "logistic_iterations": 500,
+  "bootstrap_repeats": 300,
+  "threads": 2,
+  "history_observation": "uniform_reference",
+  "history_max_sources": 4096,
+  "history_max_events_per_source": 10000,
+  "history_max_total_events": 100000,
+  "history_max_pending_events": 100000,
+  "models": [
+    {
+      "name": "baseline_dnn",
+      "kind": "dnn",
+      "variant": "baseline"
+    },
+    {
+      "name": "engineered_dnn",
+      "kind": "dnn",
+      "variant": "engineered"
+    },
+    {
+      "name": "context_dnn",
+      "kind": "dnn",
+      "variant": "context"
+    },
+    {
+      "name": "random_forest",
+      "kind": "random_forest",
+      "variant": "baseline"
+    },
+    {
+      "name": "logistic",
+      "kind": "logistic",
+      "variant": "baseline"
+    },
+    {
+      "name": "dummy",
+      "kind": "dummy",
+      "variant": "baseline"
+    }
+  ],
+  "study_status": "CPU development rerun after audit fixes; reused benchmark partitions; independent confirmation pending",
+  "prior_test_exposure": "development_reused",
+  "require_preparation_manifest": true
+}

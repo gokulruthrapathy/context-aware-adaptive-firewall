@@ -1,0 +1,19 @@
+{
+  "seconds": 4.881093800067902,
+  "history": [],
+  "best_epoch": null,
+  "minimum_loss_epoch": null,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "monotonic",
+    "attack_support": 1052,
+    "benign_support": 3938,
+    "slope": 1.113579154012099,
+    "intercept": -2.8198232140081467,
+    "requested_method": "monotonic",
+    "fallback_reason": null,
+    "boundary_solution": false,
+    "calibration_brier_raw": 0.004524868808046431,
+    "calibration_brier_used": 0.002258731928406513
+  }
+}

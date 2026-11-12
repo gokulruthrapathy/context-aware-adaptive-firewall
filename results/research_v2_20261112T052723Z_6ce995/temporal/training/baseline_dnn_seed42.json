@@ -1,0 +1,70 @@
+{
+  "seconds": 2.374565999954939,
+  "history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.09772069109352545,
+      "tuning_log_loss": 0.012625777162611485
+    },
+    {
+      "epoch": 2,
+      "training_loss": 0.015146005093589265,
+      "tuning_log_loss": 0.0077474103309214115
+    },
+    {
+      "epoch": 3,
+      "training_loss": 0.00841139528423003,
+      "tuning_log_loss": 0.006296633742749691
+    },
+    {
+      "epoch": 4,
+      "training_loss": 0.006301562385193115,
+      "tuning_log_loss": 0.005826425738632679
+    },
+    {
+      "epoch": 5,
+      "training_loss": 0.0052002000580567915,
+      "tuning_log_loss": 0.005575937684625387
+    },
+    {
+      "epoch": 6,
+      "training_loss": 0.004499097105516315,
+      "tuning_log_loss": 0.005651943851262331
+    },
+    {
+      "epoch": 7,
+      "training_loss": 0.0038688089343481454,
+      "tuning_log_loss": 0.0059150648303329945
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.0034136801050621154,
+      "tuning_log_loss": 0.006025027018040419
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.00299035769876603,
+      "tuning_log_loss": 0.005881066899746656
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.0025647394201964704,
+      "tuning_log_loss": 0.005609075538814068
+    }
+  ],
+  "best_epoch": 5,
+  "minimum_loss_epoch": 5,
+  "tuning_unknown_rows": 0,
+  "calibration": {
+    "method": "identity",
+    "attack_support": 28,
+    "benign_support": 6956,
+    "slope": null,
+    "intercept": null,
+    "requested_method": "monotonic",
+    "fallback_reason": "calibration support below 100 per class",
+    "boundary_solution": false,
+    "calibration_brier_raw": 0.004930654856758254,
+    "calibration_brier_used": 0.004930654856758254
+  }
+}
